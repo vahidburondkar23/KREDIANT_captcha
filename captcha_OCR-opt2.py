@@ -56,7 +56,7 @@ def get_captcha_text(img_url):
         start_time = time.time()
         print("[INFO] Step 4: Performing OCR on CAPTCHA image...")
         image = Image.open(BytesIO(img_response.content))
-        captcha_text = pytesseract.image_to_string(image, config = '--psm 8 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789').strip()
+        captcha_text = pytesseract.image_to_string(image, config='--psm 8').strip()
         ocr_time = time.time() - start_time
         print(f"[TIME] OCR processing time: {ocr_time:.2f} seconds")
 
